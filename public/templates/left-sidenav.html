@@ -1,0 +1,47 @@
+<md-sidenav class="md-sidenav-left" md-component-id="left">
+    <md-toolbar>
+        <h2 class="md-toolbar-tools">Add an Album</h2>
+    </md-toolbar>
+
+    <md-content class="md-padding">
+        <form>
+            <!-- INPUTS -->
+            <div layout="column">
+                <md-input-container style="margin-top: 20px;">
+                    <label for="albumName">Album Name</label>
+                    <input type="text" id="albumName" ng-model="formData.albumName" md-autofocus>
+                </md-input-container>
+                <md-input-container>
+                    <label for="albumArtist">Artist</label>
+                    <input type="text" id="albumArtist" ng-model="formData.albumArtist">
+                </md-input-container>
+                <md-input-container>
+                    <label for="albumGenre">Genre</label>
+                    <input type="text" id="albumGenre" ng-model="formData.albumGenre">
+                </md-input-container>
+                <md-input-container>
+                    <label for="albumOwner">Owner</label>
+                    <input type="text" id="albumOwner" ng-model="formData.albumOwner">
+                </md-input-container>
+                <md-input-container>
+                    <label for="albumNumberListens">Number of Listens</label>
+                    <input type="text" id="albumNumberListens" ng-model="formData.albumNumberListens">
+                </md-input-container>
+                <md-input-container>
+                    <label for="albumLastListen">Last Listen</label>
+                    <input type="text" id="albumLastListen" ng-model="formData.albumLastListen">
+                </md-input-container>
+            </div>
+
+            <!-- BUTTONS -->
+            <div layout="row">
+                <md-button class="md-primary md-raised" ng-if="!editing" ng-disabled="!formData.albumName.length || buttonDisabled" ng-click="createAlbum()">
+                    Save
+                </md-button>
+                <md-button class="md-warn md-raised" ng-click="closeSidebar()">
+                    Cancel
+                </md-button>
+            </div>
+        </form>
+    </md-content>
+</md-sidenav>
