@@ -1,11 +1,8 @@
-<md-bottom-sheet class="md-grid" layout="column" ng-cloak>
+<md-bottom-sheet class="md-list" ng-cloak>
     <div>
         <h3>{{ album.albumName }}</h3>
 
-        <div flex="15"></div>
-        <div flex="85">
-            <p> Album ID# : {{ album._id }} </p>
-        </div>
+        <p> Album ID# : {{ album._id }} </p>
         
         <form>
             <div layout="column">
@@ -58,17 +55,11 @@
                     </md-input-container>
                 </div>
             </div>
-
-
-<div class="form-group">
-<div class="col-xs-2"></div>
-
-<div class="col-xs-1">
-    <button type="submit" class="btn btn-default btn-sm" ng-click="updateAlbum(album._id)">Update</button>
-</div>
-</div>
-
-</form>
-
-</div>
+            
+            <md-button class="md-primary md-raised" ng-click="updateAlbum(album._id)">
+                Update
+            </md-button>
+        
+        </form>
+    </div>
 </md-bottom-sheet>

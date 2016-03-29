@@ -2,6 +2,10 @@ html, body {
 	height: 100%;
 }
 
+body {
+    overflow: auto;
+}
+
 button .material-icons {
     margin-top: 7px;
 }
