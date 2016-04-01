@@ -181,32 +181,27 @@
                 <md-card-actions layout="row" layout-align="end center">
                     <md-button class="md-primary md-raised md-small" ng-click="showUpdateBtn = true"
                                ng-show="!showUpdateBtn">
-                        <md-icon class="mdi mdi-pencil"></md-icon>
-                        <span hide show-gt-xs>Edit</span>
+                        <span>Edit</span>
                     </md-button>
                     <md-button class="md-warn md-raised md-small"
                                ng-click="updateAlbum(album._id)"
                                ng-show="showUpdateBtn">
-                        <md-icon class="mdi mdi-content-save"></md-icon>
-                        <span hide show-gt-xs>Update</span>
+                        <span>Update</span>
                     </md-button>
                     <md-button class="md-warn md-raised md-small"
                                ng-click="deleteAlbum(album._id)"
                                ng-show="showUpdateBtn">
-                        <md-icon class="mdi mdi-delete"></md-icon>
-                        <span hide show-gt-xs>Delete</span>
+                        <span>Delete</span>
                     </md-button>
                     <md-button class="md-accent md-raised md-small"
                                ng-click="showUpdateBtn = !showUpdateBtn"
                                ng-show="showUpdateBtn">
-                        <md-icon class="mdi mdi-close-circle-outline"></md-icon>
-                        <span hide show-gt-xs>Cancel</span>
+                        <span>Cancel</span>
                     </md-button>
                     <md-button class="md-accent md-raised md-small"
                                ng-click="toggleDetails = !toggleDetails"
                                ng-show="!showUpdateBtn">
-                        <md-icon class="mdi mdi-close-circle-outline"></md-icon>
-                        <span hide show-gt-xs>Close</span>
+                        <span>Close</span>
                     </md-button>
                 </md-card-actions>
             </md-card>
