@@ -71,6 +71,10 @@ button .material-icons {
     background: #e8e8e8;
 }
 
+.md-button.md-small {
+    min-width: 1%;
+}
+
 textarea {
     resize: none;
 }

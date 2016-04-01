@@ -179,29 +179,34 @@
                 </md-card-content>
                 
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-primary md-raised" ng-click="showUpdateBtn = true"
+                    <md-button class="md-primary md-raised md-small" ng-click="showUpdateBtn = true"
                                ng-show="!showUpdateBtn">
-                        Edit
+                        <md-icon class="mdi mdi-pencil"></md-icon>
+                        <span hide show-gt-xs>Edit</span>
                     </md-button>
-                    <md-button class="md-warn md-raised"
+                    <md-button class="md-warn md-raised md-small"
                                ng-click="updateAlbum(album._id)"
                                ng-show="showUpdateBtn">
-                        Update
+                        <md-icon class="mdi mdi-content-save"></md-icon>
+                        <span hide show-gt-xs>Update</span>
                     </md-button>
-                    <md-button class="md-warn md-raised"
+                    <md-button class="md-warn md-raised md-small"
                                ng-click="deleteAlbum(album._id)"
                                ng-show="showUpdateBtn">
-                        Delete
+                        <md-icon class="mdi mdi-delete"></md-icon>
+                        <span hide show-gt-xs>Delete</span>
                     </md-button>
-                    <md-button class="md-accent md-raised"
+                    <md-button class="md-accent md-raised md-small"
                                ng-click="showUpdateBtn = !showUpdateBtn"
                                ng-show="showUpdateBtn">
-                        Cancel
+                        <md-icon class="mdi mdi-close-circle-outline"></md-icon>
+                        <span hide show-gt-xs>Cancel</span>
                     </md-button>
-                    <md-button class="md-accent md-raised"
+                    <md-button class="md-accent md-raised md-small"
                                ng-click="toggleDetails = !toggleDetails"
                                ng-show="!showUpdateBtn">
-                        Close
+                        <md-icon class="mdi mdi-close-circle-outline"></md-icon>
+                        <span hide show-gt-xs>Close</span>
                     </md-button>
                 </md-card-actions>
             </md-card>
