@@ -33,12 +33,15 @@
     </div>
 
     <!-- table row content loop -->
-    <div layout="row" flex="100" class="albumRow"
+    <div layout="row" flex="100" class="albumRow" layout-wrap
          ng-repeat="album in albums | filter:userFilter | orderBy:'albumName' ">
-        <div flex="50"
-             flex-gt-xs="45"
-             flex-gt-sm="30">
-            <p><a ng-click="openSidebar()" style="cursor: pointer; text-decoration: underline;"> {{ album.albumName }} </a></p>
+        
+        <!-- primary row elements --> 
+        <div flex="50" flex-gt-xs="45" flex-gt-sm="30">
+            <p><a ng-init="toggleDetails = false" ng-click="toggleDetails = !toggleDetails; showUpdateBtn = false"
+                  style="cursor: pointer; text-decoration: underline;">
+                {{ album.albumName }}
+                </a></p>
         </div>
         <div hide show-gt-xs
              flex-gt-xs="25"
@@ -63,5 +66,146 @@
              flex-gt-sm="10">
             <p>{{ album.albumNumberListens }}</p>
         </div>
+        
+        <!-- toggled row elements --> 
+        <div ng-class="{ 'hidethisbooger': !toggleDetails }" class="albumdetails" flex="100">
+            <md-card md-whiteframe="6">
+                <md-card-title md-whiteframe="3">
+                    <md-card-title-text>
+                        <span class="md-headline"> {{ album.albumName }} </span>
+                        <span class="md-subhead"> ID: {{ album._id }} </span>
+                    </md-card-title-text>
+                </md-card-title>
+                
+                <md-card-content>
+                    <div ng-if="!showUpdateBtn">
+                        <div layout="column">
+                            <div layout="row">
+                                <div class="card-row-titles" flex="none">
+                                    <span>Album:</span>
+                                </div>
+                                <div class="card-row-details" flex>
+                                    <span> {{ album.albumName }} </span>
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div class="card-row-titles" flex="none">
+                                    <span>Artist:</span>
+                                </div>
+                                <div class="card-row-details" flex>
+                                    <span> {{ album.albumArtist }} </span>
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div class="card-row-titles" flex="none">
+                                    <span>Genre:</span>
+                                </div>
+                                <div class="card-row-details" flex>
+                                    <span> {{ album.albumGenre }} </span>
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div class="card-row-titles" flex="none">
+                                    <span>Owner:</span>
+                                </div>
+                                <div class="card-row-details" flex>
+                                    <span> {{ album.albumOwner }} </span>
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div class="card-row-titles" flex="none">
+                                    <span>Last Listen:</span>
+                                </div>
+                                <div class="card-row-details" flex>
+                                    <span> {{ album.albumLastListen }} </span>
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div class="card-row-titles" flex="none">
+                                    <span>Number of Listens:</span>
+                                </div>
+                                <div class="card-row-details" flex>
+                                    <span> {{ album.albumNumberListens }} </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <form ng-if="showUpdateBtn">
+                        <md-input-container>
+                            <label for="newName">Album Name</label>
+                            <input type="text" id="newName"
+                                   placeholder="{{ album.albumName }}"
+                                   ng-model="updateData.newName" md-autofocus>
+                        </md-input-container>
+                        <md-input-container>
+                            <label for="newArtist">Artist</label>
+                            <input type="text" id="newArtist"
+                                   placeholder="{{ album.albumArtist }}"
+                                   ng-model="updateData.newArtist">
+                        </md-input-container>
+                        <md-input-container>
+                            <label for="newGenre">Genre</label>
+                            <input type="text" id="newGenre"
+                                   placeholder="{{ album.albumGenre }}"
+                                   ng-model="updateData.newGenre">
+                        </md-input-container>
+                        <md-input-container>
+                            <label for="newOwner">Owner</label>
+                            <input type="text" id="newOwner"
+                                   placeholder="{{ album.albumOwner }}"
+                                   ng-model="updateData.newOwner">
+                        </md-input-container>
+                        <md-input-container>
+                            <label for="newLastListen">Last Listen</label>
+                            <input type="text" id="newLastListen"
+                                   placeholder="{{ album.albumLastListen }}"
+                                   ng-model="updateData.newLastListen">
+                        </md-input-container>
+                        <md-input-container>
+                            <label for="newListens">Listens</label>
+                            <input type="text" id="newListens"
+                                   placeholder="{{ album.albumNumberListens }}"
+                                   ng-model="updateData.newListens">
+                        </md-input-container>
+                    
+                            <md-input-container md-no-float class="md-block">
+                                <textarea placeholder="Notes" md-maxlength="1000" rows="5"></textarea>
+                            </md-input-container>
+
+                    </form>
+                
+                </md-card-content>
+                
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-primary md-raised" ng-click="showUpdateBtn = true"
+                               ng-show="!showUpdateBtn">
+                        Edit
+                    </md-button>
+                    <md-button class="md-warn md-raised"
+                               ng-click="updateAlbum(album._id)"
+                               ng-show="showUpdateBtn">
+                        Update
+                    </md-button>
+                    <md-button class="md-warn md-raised"
+                               ng-click="deleteAlbum(album._id)"
+                               ng-show="showUpdateBtn">
+                        Delete
+                    </md-button>
+                    <md-button class="md-accent md-raised"
+                               ng-click="showUpdateBtn = !showUpdateBtn"
+                               ng-show="showUpdateBtn">
+                        Cancel
+                    </md-button>
+                    <md-button class="md-accent md-raised"
+                               ng-click="toggleDetails = !toggleDetails"
+                               ng-show="!showUpdateBtn">
+                        Close
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+        
     </div>
 </md-content>

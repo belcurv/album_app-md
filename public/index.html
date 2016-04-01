@@ -27,12 +27,13 @@
     <script src="js/core.js"                        ></script>
 </head>
 
-<body ng-app="albumApp" ng-controller="mainController" layout="column" ng-cloak>
+<body ng-app="albumApp" ng-controller="mainController" ng-cloak
+      layout="column" style="overflow: auto;">
     
     <!-- ===================== HEADER AND ALBUM COUNT ===================== -->
     <md-toolbar>
         <div class="md-toolbar-tools">
-            <md-button class="md-primary md-raised" ng-click="openSidebar()">
+            <md-button class="md-primary md-raised" ng-click="openLeftSidebar()">
                 <md-icon class="mdi mdi-plus-circle"></md-icon>
                 Add <span hide show-gt-xs>Album</span>
             </md-button>
@@ -42,11 +43,14 @@
         </div>
     </md-toolbar>
 
-    <!-- ============================ SIDENAV ============================= -->
+    <!-- ========================= LEFT SIDENAV =========================== -->
     <left-side-nav></left-side-nav>
 
-    <!-- =========================== ALBUM LIST =========================== -->
+    <!-- ========================== ALBUM LIST ============================ -->
     <album-list></album-list>
+    
+    <!-- ========================= RIGHT SIDENAV ========================== -->
+    <right-side-nav></right-side-nav>
     
     
 </body>

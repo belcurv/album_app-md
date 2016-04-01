@@ -11,24 +11,36 @@ button .material-icons {
 }
 
 .albumdetails{
-  max-height: 600px;
-  /* -webkit-transition: max-height 0.5s; */  /* uncomment for animated transition */
-  /* -moz-transition: max-height 0.5s; */
-  /* transition: max-height 0.5s; */
-  overflow: hidden;
-  padding: 20px;
+    /* -webkit-transition: max-height 0.5s; */  /* uncomment for animated transition */
+    /* -moz-transition: max-height 0.5s; */
+    /* transition: max-height 0.5s; */
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }
 
 .albumdetails.hidethisbooger {
-  /* max-height: 0; */ /* uncomment to animate */
-  display: none;
+    /* max-height: 0; */ /* uncomment to animate */
+    display: none;
 }
 
 .albumdetails > div {
-  background: #FFFFFF;
-  box-shadow: 0 0 15px #234050;
-  -moz-box-shadow: 0 0 15px #234050;
-  -webkit-box-shadow: 0 0 15px #234050;
+    background: #FFFFFF;
+    box-shadow: 0 0 15px #234050;
+    -moz-box-shadow: 0 0 15px #234050;
+    -webkit-box-shadow: 0 0 15px #234050;
+/*    padding: 10px;*/
+}
+
+.card-row-titles {
+    width: 180px;
+    padding: 5px 0px 5px 10px;
+}
+
+.card-row-details {
+    padding: 5px 10px, 5px, 0px;
 }
 
 .albumHeader {
@@ -46,15 +58,17 @@ button .material-icons {
 }
 
 .albumRow:nth-child(even) {
-  background: #fff5bd;
+    background: #fff5bd;
 }
 
+/*
 .albumRow:nth-child(odd) {
-/*  border-top: 1px solid #c6c6c6;*/
+    border-top: 1px solid #c6c6c6;
 }
+*/
 
 textarea {
-  resize: none;
+    resize: none;
 }
 
 

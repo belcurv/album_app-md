@@ -40,17 +40,17 @@
 
     
     // ============================== Controllers =============================
-    albumApp.controller('mainController', ['$scope', 'Albums', '$http', '$mdToast', '$mdSidenav', function ($scope, Albums, $http, $mdToast, $mdSidenav) {
+    albumApp.controller('mainController', ['$scope', 'Albums', '$http', '$mdToast', '$mdSidenav',  function ($scope, Albums, $http, $mdToast, $mdSidenav) {
         
         // UTILITY METHODS
-        $scope.openSidebar = function () {
+        $scope.openLeftSidebar = function () {
             $mdSidenav('left').open();
         };
 
-        $scope.closeSidebar = function () {
+        $scope.closeLeftSidebar = function () {
             $mdSidenav('left').close();
         };
-
+        
         var showToast = function (message) {
             $mdToast.show(
                 $mdToast.simple()
@@ -140,7 +140,7 @@
         };
 
     }]);
-
+    
 
     // =============================== Directives =============================
     albumApp.directive('leftSideNav', function () {
