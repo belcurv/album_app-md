@@ -97,7 +97,7 @@
                     .finally(function (data) {
                         $scope.formData = {}; // clear form; ready for new data
                         $scope.buttonDisabled = false; // now we can enable button again
-                        $scope.closeSidebar();
+                        $scope.closeLeftSidebar();
                         showToast('Album created');
                     });
             }
@@ -134,7 +134,7 @@
                 .finally(function (data) {
                     $scope.updateData = {}; // clear form; ready for new data
                     $scope.updateButtonDisabled = false; // now we can enable button again
-                    $scope.closeSidebar();
+                    $scope.closeLeftSidebar();
                     showToast('Album updated');
                 });
         };
